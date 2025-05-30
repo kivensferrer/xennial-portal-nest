@@ -90,7 +90,7 @@
             margin: 0;
             font-size: 1.5rem;
             font-weight: 800;
-            color: #22223b;
+            color: #22223b; /* fallback color */
             letter-spacing: 1px;
             z-index: 1;
             position: relative;
@@ -103,7 +103,9 @@
         .gallery-item:hover h3 {
             color: #3a0ca3;
             text-shadow: 0 4px 16px #a1c4fd99;
-            -webkit-text-fill-color: unset;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: #3a0ca3;
         }
         .gallery-item:active {
             transform: scale(0.97) rotate(1deg);
