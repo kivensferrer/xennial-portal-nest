@@ -90,22 +90,22 @@
             margin: 0;
             font-size: 1.5rem;
             font-weight: 800;
-            color: #22223b; /* fallback color */
+            color: #22223b; /* fallback color, always visible */
             letter-spacing: 1px;
             z-index: 1;
             position: relative;
-            transition: color 0.2s, text-shadow 0.2s;
+            transition: color 0.2s, text-shadow 0.2s, background 0.2s;
             text-shadow: 0 2px 8px #a1c4fd44;
+            /* Remove gradient and webkit properties from default */
+        }
+
+        .gallery-item:hover h3 {
+            /* Gradient text only on hover */
             background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-        .gallery-item:hover h3 {
             color: #3a0ca3;
             text-shadow: 0 4px 16px #a1c4fd99;
-            background: none;
-            -webkit-background-clip: unset;
-            -webkit-text-fill-color: #3a0ca3;
         }
         .gallery-item:active {
             transform: scale(0.97) rotate(1deg);
