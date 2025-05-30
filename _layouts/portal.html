@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: "Gallery" }}</title>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.18/auth0-spa-js.production.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
@@ -42,42 +41,35 @@
             flex-direction: column;
             transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s cubic-bezier(.4,2,.6,1);
             position: relative;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
         }
         .gallery-item:hover {
             transform: translateY(-8px) scale(1.025);
             box-shadow: 0 16px 48px rgba(60, 72, 88, 0.18), 0 4px 12px rgba(60, 72, 88, 0.08);
             z-index: 2;
+            background: linear-gradient(90deg, #e0e7ef 0%, #f8fafc 100%);
         }
         .gallery-item h3 {
             text-align: center;
-            padding: 18px 12px 12px 12px;
-            background: linear-gradient(90deg, #e0e7ef 0%, #f8fafc 100%);
+            padding: 24px 12px;
             margin: 0;
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.35rem;
+            font-weight: 700;
             color: #3b4252;
             letter-spacing: 0.5px;
+            transition: color 0.2s;
         }
-        .gallery-item iframe {
-            width: 100%;
-            height: 260px;
-            border: none;
-            border-bottom-left-radius: 18px;
-            border-bottom-right-radius: 18px;
-            background: #f4f7fa;
-            transition: filter 0.2s;
-        }
-        .gallery-item:hover iframe {
-            filter: brightness(0.97) blur(0.5px);
+        .gallery-item:hover h3 {
+            color: #1a202c;
         }
         @media (max-width: 700px) {
             .gallery {
                 grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 0 2vw 4vw 2vw;
-            }
-            .gallery-item iframe {
-                height: 180px;
             }
         }
     </style>
@@ -89,9 +81,8 @@
 
     <div class="gallery">
         {% for option in page.options %}
-        <div class="gallery-item" data-show="{{ option.show }}">
+        <div class="gallery-item" data-show="{{ option.show }}" onclick="window.open('{{ option.url }}', '_blank')">
             <h3>{{ option.name }}</h3>
-            <iframe src="{{ option.url }}" title="{{ option.name }}"></iframe>
         </div>
         {% endfor %}
     </div>
