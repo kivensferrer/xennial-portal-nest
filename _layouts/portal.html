@@ -145,5 +145,13 @@
         </div>
         {% endfor %}
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.gallery-item').forEach(function(item) {
+                var delay = (Math.random() * 0.6).toFixed(2) + 's';
+                item.style.transitionDelay = delay;
+            });
+        });
+    </script>
 </body>
 </html>
