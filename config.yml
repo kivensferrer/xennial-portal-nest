@@ -1,4 +1,5 @@
 title: My Jekyll site
 include:
   - site-pages
+  - testing
 permalink: pretty
