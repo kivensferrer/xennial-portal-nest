@@ -26,7 +26,6 @@
             text-shadow: 0 4px 32px #a1c4fd88, 0 1.5px 4px #22223b22;
             background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         .gallery {
             display: grid;
@@ -100,12 +99,9 @@
         }
 
         .gallery-item:hover h3 {
-            /* Gradient text only on hover */
-            background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             color: #3a0ca3;
             text-shadow: 0 4px 16px #a1c4fd99;
+            background: none;
         }
         .gallery-item:active {
             transform: scale(0.97) rotate(1deg);
